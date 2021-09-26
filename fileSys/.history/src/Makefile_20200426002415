@@ -1,0 +1,13 @@
+CC = g++
+CFLAGS = -g -Wall -lpthread
+
+all: TrackingServer Node
+
+TrackingServer: servermain.cpp trackServer.cpp 
+	$(CC) $(CFLAGS) $^ -o $@ 
+
+Node: nodemain.cpp node.cpp
+	$(CC) $(CFLAGS) $^ -o $@
+
+clean:
+	-rm -f *.o *~ *core* TrackingServer Node  
